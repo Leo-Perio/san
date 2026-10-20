@@ -4,6 +4,8 @@ import java.util.ArrayList;
 public class san {
     public static void main(String[] args) {
 	File input_file = new File("args[0]");
-	Scanner program = new Scanner(input_file);
+	Scanner program_file = new Scanner(input_file);
 	ArrayList<int> stack = new ArrayList<int>;
-	ArrayList<String> 
+	ArrayList<String> program = new ArrayList<String>;
+    }
+}
