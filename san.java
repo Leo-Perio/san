@@ -31,10 +31,17 @@ public class san {
 	    count++;
 	    linecount.nextLine();
 	}
+        String[][] tokenized = new String[count][];
+	for (int i = 0; i < count; i++) {
+	    String newLine = program.nextInt();
+	    newLine = newLine.substring(1, newLine.length()-1);
+	    tokenized[i] = newLine.useDelimeter(" ");
+	}
+	
     }
     
     public static void main(String[] args) {
-	String[][] program= new File(arg[0]);
+	String[][] program = parseFile(arg[0]);
 	ArrayList<int> stack = new ArrayList<int>;
 	
 	
