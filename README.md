@@ -1,1 +1,2 @@
 # san
+San is a programming language that primarily relies on its "stack" (this is implemented as an ArrayList of integers) to function. It's designed to be as easy as possible for the user to modify the interpreter itself (the interpreter is implemented in Java and runs on the JVM.)
