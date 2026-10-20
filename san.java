@@ -21,19 +21,23 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class san {
-    public static void main(String[] args) {
-	File input_file = new File(args[0]);
-	Scanner program_file = new Scanner(input_file);
-	ArrayList<int> stack = new ArrayList<int>;
-	ArrayList<String> program = new ArrayList<String>;
+    public static String[][] parseFile(String fileName) {
+	File file = new File(fileName);
+	Scanner linecount = new Scanner(file);
+	Scanner program = new Scanner(file);
 
-	int linesReached = 0;
+	int count = 0;
+	while (linecount.hasNextLine()) {
+	    count++;
+	    linecount.nextLine();
+	}
+    }
+    
+    public static void main(String[] args) {
+	String[][] program= new File(arg[0]);
+	ArrayList<int> stack = new ArrayList<int>;
+	
+	
 	int currentLine = 0;
-	while (program_file.hasNextLine()) {
-	    String line = "";
-	    if (currentLine > linesReached || currentLine == 0) {
-		line = program_file.nextLine();
-	    }
-	    
     }
 }
