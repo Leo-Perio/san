@@ -6,4 +6,4 @@ public class san {
 	File input_file = new File("args[0]");
 	Scanner program = new Scanner(input_file);
 	ArrayList<int> stack = new ArrayList<int>;
-	
+	ArrayList<String> 

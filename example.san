@@ -1,0 +1,5 @@
+;; This is a comment, it is ignored by the interpreter
+(PUSH 0)
+(PUSH 1)
+(IF < TOP 255 THEN ADD)
+(IF < TOP 255 THEN GOTO 2)
