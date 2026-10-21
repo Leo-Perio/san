@@ -51,12 +51,37 @@ public class san {
     }
     
     public static int executor(String[][] program) {
-	
+	ArrayList<Integer> stack = new ArrayList<Integer>();
+	int line = 0;
+	while (line < program.length) {
+	    String arg = program[line][0];
+	    switch (arg) {
+	    case ";":
+		line++;
+		break;
+	    case "PUSH":
+		if (program[line].length <= 1) {
+		    System.out.printf("Error! Not enough lines on %d", line);
+		} else {
+		    stack.add(Integer.parseInt(program[line][1]));
+		}
+		line++;
+		break;
+	    case "ADDTOP2":
+		stack.add(stack.get(stack.size()-1) + stack.get(stack.size()-2));
+		line++;
+		break;
+	    case "PRINTTOP":
+		System.out.println(stack.get(stack.size()-1));
+		line++;
+		break;
+	    
+	    }
+	}
     }
 
     public static void main(String[] args) throws FileNotFoundException {
 	String[][] program = parseFile(args[0]);
-	ArrayList<Integer> stack = new ArrayList<Integer>();
 
 	System.exit(executor(program));
     }
