@@ -1,0 +1,5 @@
+;; Adds the top 2 elements in the stack ;;
+(PUSH 2)
+(PUSH 3)
+(ADDTOP2)
+(PRINTTOP)

@@ -1,0 +1,7 @@
+;; This is a comment, it is ignored by the interpreter ;;
+(PUSH 0)
+(PRINTTOP)
+(PUSH 1)
+(PRINTTOP)
+(IF < TOP 255 THEN ADDTOP2)
+(IF < TOP 255 THEN GOTO 4)
