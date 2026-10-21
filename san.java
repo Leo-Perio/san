@@ -16,35 +16,47 @@
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
-
-import java.util.Scanner;
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Scanner;
 
 public class san {
-    public static String[][] parseFile(String fileName) {
+    public static String[][] parseFile(String fileName) throws FileNotFoundException {
 	File file = new File(fileName);
-	Scanner linecount = new Scanner(file);
-	Scanner program = new Scanner(file);
 
 	int count = 0;
-	while (linecount.hasNextLine()) {
-	    count++;
-	    linecount.nextLine();
+        try (Scanner linecount = new Scanner(file)) {
+	    while (linecount.hasNextLine()) {
+		linecount.nextLine();
+		count++;
+	    }
 	}
         String[][] tokenized = new String[count][];
-	for (int i = 0; i < count; i++) {
-	    String newLine = program.nextInt();
-	    newLine = newLine.substring(1, newLine.length()-1);
-	    tokenized[i] = newLine.useDelimeter(" ");
+        try (Scanner program = new Scanner(file)) {
+	    for (int i = 0; i < count; i++) {
+		String newLine = program.nextLine();
+
+		if (newLine.length() < 2) {
+		    System.out.printf("Error! Line %d doesn't have enough characters!", count);
+		    System.exit(1);
+		}
+
+		newLine = newLine.substring(1, newLine.length()-1);
+		tokenized[i] = newLine.split(" ");
+	    }
 	}
-	
+	return tokenized;
     }
     
-    public static void main(String[] args) {
-	String[][] program = parseFile(arg[0]);
-	ArrayList<int> stack = new ArrayList<int>;
+    public static int executor(String[][] program) {
 	
-	
-	int currentLine = 0;
+
+    public static void main(String[] args) throws FileNotFoundException {
+	String[][] program = parseFile(args[0]);
+	ArrayList<Integer> stack = new ArrayList<Integer>();
+
+	System.exit(executor(program));
     }
 }
