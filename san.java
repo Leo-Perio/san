@@ -56,6 +56,21 @@ public class san {
 	while (line < program.length) {
 	    String arg = program[line][0];
 	    switch (arg) {
+	    case "GOTO":
+		line = Integer.parseInt(program[line][1])-1;
+       		break;
+	    case "PRINT":
+          	String val = program[line][1];
+		if (val.charAt(0) == val.charAt(val.length()-1) && val.charAt(0) == ';') {
+		    System.out.print(val.substring(1, val.length()-1));
+		} else {
+		    System.out.print(stack.get(stack.size()-1-Integer.parseInt(val)));
+		}
+		if (program[line].length == 3) {
+		    System.out.println();
+		}
+		line++;
+		break;
 	    case ";":
 		line++;
 		break;
@@ -69,6 +84,10 @@ public class san {
 		break;
 	    case "ADDTOP2":
 		stack.add(stack.get(stack.size()-1) + stack.get(stack.size()-2));
+		line++;
+		break;
+	    case "SUBTOP2":
+		stack.add(stack.get(stack.size()-2) - stack.get(stack.size()-1));
 		line++;
 		break;
 	    case "PRINTTOP":
